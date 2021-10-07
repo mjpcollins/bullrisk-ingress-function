@@ -1,3 +1,6 @@
+import requests
+
+
 def main(event, context):
     """Background Cloud Function to be triggered by Cloud Storage.
        This generic function logs relevant data when a file is changed.
@@ -11,7 +14,7 @@ def main(event, context):
     Returns:
         None; the output is written to Stackdriver Logging
     """
-
+    url = "https://github-mjpcollins-bullrisk-model-nmgxkhvw5a-nw.a.run.app"
     print('Event ID: {}'.format(context.event_id))
     print('Event type: {}'.format(context.event_type))
     print('Bucket: {}'.format(event['bucket']))
@@ -19,3 +22,7 @@ def main(event, context):
     print('Metageneration: {}'.format(event['metageneration']))
     print('Created: {}'.format(event['timeCreated']))
     print('Updated: {}'.format(event['updated']))
+    requests.post(url=url,
+                  data=event)
+    print(f'Posted event {event} to {url}')
+
