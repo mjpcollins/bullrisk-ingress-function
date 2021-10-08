@@ -28,6 +28,6 @@ def main(event, context):
             'id': event['id'],
             'name': event['name']}
     requests.post(url=url,
-                  data=data)
+                  json=data)
     print(f'Posted event {data} to {url}')
 
