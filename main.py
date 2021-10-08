@@ -14,7 +14,7 @@ def main(event, context):
     Returns:
         None; the output is written to Stackdriver Logging
     """
-    url = "https://github-mjpcollins-bullrisk-model-nmgxkhvw5a-nw.a.run.app"
+    url = "https://github-mjpcollins-bullrisk-model-nmgxkhvw5a-nw.a.run.app/model"
     print('Event ID: {}'.format(context.event_id))
     print('Event type: {}'.format(context.event_type))
     print('Bucket: {}'.format(event['bucket']))
