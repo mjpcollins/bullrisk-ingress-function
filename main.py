@@ -23,18 +23,11 @@ def main(event, context):
     print('Metageneration: {}'.format(event['metageneration']))
     print('Created: {}'.format(event['timeCreated']))
     print('Updated: {}'.format(event['updated']))
-    print('Waiting 10 seconds to ensure file has finished uploading...')
-    time.sleep(5)
-    print('5')
-    time.sleep(4)
-    print('4')
-    time.sleep(3)
-    print('3')
-    time.sleep(2)
-    print('2')
-    time.sleep(1)
-    print('1')
+    data = {'bucket': event['bucket'],
+            'contentType': event['contentType'],
+            'id': event['id'],
+            'name': event['name']}
     requests.post(url=url,
-                  data=event)
-    print(f'Posted event {event} to {url}')
+                  data=data)
+    print(f'Posted event {data} to {url}')
 
